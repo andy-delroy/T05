@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Televisions</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img src="PowerIcon.png" alt="Power logo"/>
+      <span>EnergySense</span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" data-page="home" href="index.html">Home</a>
+      <a class="nav-link" data-page="televisions" href="televisions.html">Televisions</a>
+      <a class="nav-link" data-page="about" href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="feature-article" aria-labelledby="tv-title">
+      <h1 id="tv-title">Televisions: picture quality without the power bill sting</h1>
+      <p>
+        Modern TVs vary widely in energy use. Technology choice, screen size, brightness settings,
+        and daily usage hours all influence how much electricity they draw in Australian homes.
+      </p>
+      <section aria-labelledby="tv-choose">
+        <h2 id="tv-choose">Choose an efficient screen next time</h2>
+        <ul>
+          <li>Compare the Energy Rating Label and annual <code>kWh</code> figure before you buy.</li>
+          <li>Newer LED and mini-LED models typically use less energy than older plasma or LCD sets.</li>
+          <li>Extreme HDR brightness settings can increase power draw during normal viewing.</li>
+          <li>A 55 to 65-inch TV often balances screen presence with reasonable energy demand.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> · Min Thaw Khant · GenAI-assisted content/code noted above</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

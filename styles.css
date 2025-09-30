@@ -1,0 +1,119 @@
+/* Color palette from the logo */
+:root{
+  --sun: #f7e09b;
+  --amber: #f1a12a;
+  --brown: #6a4f2d;
+  --ink: #2b241a;
+  --cream: #fff9e6;
+}
+
+*{ box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+/* Header + Nav */
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.5rem 1rem;
+  background: var(--sun);
+  border-bottom: 3px solid var(--brown);
+  position: sticky;
+  top:0;
+  z-index:10;
+}
+
+.brand{
+  display:flex; align-items:center; gap:.5rem;
+  text-decoration:none; color: var(--brown); font-weight:700;
+}
+
+.brand img{ width:36px; height:36px; display:block; }
+
+.top-nav{ display:flex; gap:.5rem; }
+
+.nav-link{
+  border:2px solid var(--brown);
+  background: transparent;
+  color: var(--brown);
+  padding:.5rem .9rem;
+  border-radius:999px;
+  text-decoration:none;
+  transition: transform .06s ease, background .2s ease, color .2s ease;
+}
+
+.nav-link:hover, .nav-link:focus{
+  outline:none;
+  transform: translateY(-1px);
+  background: var(--amber);
+  color:#fff;
+}
+
+.nav-link.active{
+  background: var(--brown);
+  color: #fff;
+}
+
+/* Layout */
+.container{ max-width: 1000px; margin: 1rem auto 4rem; padding: 0 1rem; }
+
+.feature-article{
+  background: #fff;
+  border: 2px solid var(--brown);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 0 var(--brown);
+  margin: 1.5rem 0 0;
+  line-height: 1.6;
+}
+
+.feature-article h1{
+  margin-top: 0;
+}
+
+.feature-article section + section{
+  margin-top: 1.5rem;
+}
+
+.feature-article h2{
+  margin-bottom: .5rem;
+  font-size: 1.3rem;
+  color: var(--brown);
+}
+
+.feature-article ul{
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.feature-article li + li{
+  margin-top: .5rem;
+}
+
+.feature-article code{
+  background: #f7f1df;
+  padding: 0 .25rem;
+  border-radius: .25rem;
+}
+
+/* Footer */
+.site-footer{
+  background: var(--sun);
+  border-top: 3px solid var(--brown);
+  padding:.75rem 1rem;
+  text-align:center;
+  color: var(--brown);
+}
+
+.responsive-svg-container {
+margin: 0 auto; /* center */
+width: 100%; /* fill parent width */
+max-width: 1200px; /* cap max width */
+}
+

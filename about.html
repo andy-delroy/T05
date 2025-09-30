@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img src="PowerIcon.png" alt="Power logo"/>
+      <span>EnergySense</span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" data-page="home" href="index.html">Home</a>
+      <a class="nav-link" data-page="televisions" href="televisions.html">Televisions</a>
+      <a class="nav-link" data-page="about" href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="feature-article" aria-labelledby="about-title">
+      <h1 id="about-title">About EnergySense</h1>
+      <p>
+        EnergySense is a COS30045 practice site that demonstrates how clear content and simple
+        layouts can help Australians make informed decisions about appliance energy use.
+      </p>
+
+      <section aria-labelledby="about-credits">
+        <h2 id="about-credits">Credits and acknowledgement</h2>
+        <ul>
+          <li>Colour palette and iconography draw from the supplied PowerIcon logo.</li>
+          <li>GenAI acknowledgement: an AI coding companion helped draft placeholder copy and layout ideas.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+     <p>&copy; <span id="year"></span> · Min Thaw Khant · GenAI-assisted content/code noted above</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

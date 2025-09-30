@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <!-- Top-left logo returns to Home -->
+    <a class="brand" href="index.html" aria-label="Go to Home">
+      <img src="PowerIcon.png" alt="Power logo"/>
+      <span>EnergySense</span>
+    </a>
+
+    <!-- Top nav links (other pages to be created next) -->
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" data-page="home" href="index.html">Home</a>
+      <a class="nav-link" data-page="televisions" href="televisions.html">Televisions</a>
+      <a class="nav-link" data-page="about" href="about.html">About Us</a>
+    </nav>
+  </header>
+  <h1>Appliance Energy Consumption</h1>
+  <div id="content"></div>
+  <!-- Give the SVG a size so shapes can be seen -->
+  <svg width="300" height="150"></svg>
+  
+  
+  <!-- NEW: Container for T04-3 chart -->
+  <div class="responsive-svg-container"></div> 
+  
+  
+  <!-- Old js files -->
+  <!-- <script src="t04-3-bars.js"></script>  -->
+  <!-- Old T04-2 demo (disabled temporarily) -->
+  <!-- <script src="energy-d3.js"></script> -->
+  <main class="container">
+    <article class="feature-article" aria-labelledby="home-title">
+      <h1 id="home-title">Smarter energy choices for Aussie homes</h1>
+      <p>
+        Appliances account for a significant portion of household electricity use in Australia.
+        Choosing efficient models and using them wisely can shrink bills and emissions.
+      </p>  
+      
+      <section aria-labelledby="home-habits">
+        <h2 id="home-habits">Adopt everyday energy-smart habits</h2>
+        <ul>
+          <li><strong>Fridges:</strong> Right-size capacity, set 3-5&nbsp;&deg;C, and clean door seals.</li>
+          <li><strong>Washing:</strong> Cold water cycles save roughly 80&ndash;90% versus hot.</li>
+          <li><strong>Dishwashers:</strong> Use eco modes and only run when full.</li>
+          <li><strong>Standby:</strong> Smart power boards help cut standby or "vampire" loads.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+  
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> · Min Thaw Khant · GenAI-assisted content/code noted above</p>
+  </footer>
+  
+  <!-- Load D3 first, then your D3 code file -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- NEW: T04-4 loader -->
+  <script src="t04-4-load.js"></script>  // loads CSV then calls createBarChart
+  <script src="t04-5-bars.js"></script>  // defines createBarChart
+  <script src="script.js"></script>
+</body>
+</html>
