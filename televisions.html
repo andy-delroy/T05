@@ -30,18 +30,77 @@
         <h2 id="tv-choose">Choose an efficient screen next time</h2>
         <ul>
           <li>Compare the Energy Rating Label and annual <code>kWh</code> figure before you buy.</li>
-          <li>Newer LED and mini-LED models typically use less energy than older plasma or LCD sets.</li>
+          <li>Newer LED, mini-LED and MicroLED models typically use less energy than older plasma or LCD sets.</li>
           <li>Extreme HDR brightness settings can increase power draw during normal viewing.</li>
           <li>A 55 to 65-inch TV often balances screen presence with reasonable energy demand.</li>
         </ul>
       </section>
     </article>
+
+    <section class="chart-intro" aria-labelledby="chart-intro-title">
+      <h2 id="chart-intro-title">Exploring the supplied TV and spot price datasets</h2>
+      <p>
+        These charts use the provided Ex5 CSV files: TV energy ratings and Australian wholesale spot prices.
+        Each visualisation zooms in on a different question from that shared dataset bundle.
+      </p>
+    </section>
+
+    <section class="chart-grid" aria-label="TV energy visualisations">
+      <article class="chart-card" aria-labelledby="scatter-title">
+        <div class="chart-text">
+          <h3 id="scatter-title">Star rating vs annual kWh (scatter)</h3>
+          <p>
+            Higher star ratings usually mean lower annual kilowatt hour (kWh) consumption. Bubble size
+            represents screen size, while colour shows the underlying panel technology.
+          </p>
+        </div>
+        <div class="chart" id="scatter-chart" role="img" aria-label="Scatter plot showing annual kWh versus star rating for different TVs"></div>
+      </article>
+
+      <article class="chart-card" aria-labelledby="donut-title">
+        <div class="chart-text">
+          <h3 id="donut-title">Energy share by technology (donut)</h3>
+          <p>
+            Summed across all sample models, newer display types contribute a smaller slice of overall
+            electricity demand compared with legacy plasma or basic LCD sets.
+          </p>
+        </div>
+        <div class="chart" id="donut-chart" role="img" aria-label="Donut chart of total energy use by screen technology"></div>
+      </article>
+
+      <article class="chart-card" aria-labelledby="bar-title">
+        <div class="chart-text">
+          <h3 id="bar-title">55-inch energy by technology (bar)</h3>
+          <p>
+            Looking only at 55-inch screens, mini-LED and MicroLED sets stand out for combining large
+            displays with strong energy performance. Values show the average annual kWh per technology.
+          </p>
+        </div>
+        <div class="chart" id="bar-chart" role="img" aria-label="Bar chart of average annual kWh for 55-inch televisions by technology"></div>
+      </article>
+
+      <article class="chart-card" aria-labelledby="line-title">
+        <div class="chart-text">
+          <h3 id="line-title">Spot prices 1998?2024 (line)</h3>
+          <p>
+            Historical spot prices influence the running cost of every appliance. The chart tracks average
+            annual wholesale prices for major NEM regions from 1998 to 2024.
+          </p>
+        </div>
+        <div class="chart" id="line-chart" role="img" aria-label="Line chart showing wholesale electricity prices from 1998 to 2024"></div>
+      </article>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> · Min Thaw Khant · GenAI-assisted content/code noted above</p>
+    <p>&copy; <span id="year"></span> ? Min Thaw Khant ? GenAI-assisted content/code noted above</p>
   </footer>
 
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/tv-scatter.js"></script>
+  <script src="js/tv-donut.js"></script>
+  <script src="js/tv-bar.js"></script>
+  <script src="js/spot-line.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
