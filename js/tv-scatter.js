@@ -10,7 +10,7 @@
 
   // Load the Ex5 TV energy file and coerce numeric fields.
   d3.csv('data/Ex5_TV_energy.csv', d => {
-    const diagonal = d.screensize ? +d.screensiz : null;
+    const diagonal = d.screensize ? +d.screensize : null;
     const energy = d.energy_consumpt ? +d.energy_consumpt : null;
     const stars = d.star2 ? +d.star2 : null;
     const count = d.count ? +d.count : 0;
