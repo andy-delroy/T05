@@ -50,7 +50,7 @@
     function render(){
       // Make the chart responsive to the card width.
       const width = container.node().clientWidth || 320;
-      const height = Math.max(360, Math.round(width * 0.7));
+      const height = Math.max(300, Math.round(width * 0.6));
 
       svg.attr('width', width).attr('height', height);
       plot.attr('transform', `translate(${margin.left},${margin.top})`);

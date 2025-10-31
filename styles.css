@@ -124,13 +124,10 @@ max-width: 1200px; /* cap max width */
 }
 
 .chart-grid{
-  display: grid;
-  gap: 2rem;
-  margin: 2rem 0 4rem;
-}
-
-@media (min-width: 720px){
-  .chart-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  margin:2rem 0 4rem;
 }
 
 .chart-card{
@@ -150,8 +147,9 @@ max-width: 1200px; /* cap max width */
 }
 
 .chart{
-  width:100%;
-  min-height:320px;
+  width:min(100%, 720px);
+  min-height:280px;
+  margin:0 auto;
   position:relative;
 }
 

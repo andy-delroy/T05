@@ -93,7 +93,7 @@
     function render(){
       // Size the chart according to its container width.
       const width = container.node().clientWidth || 320;
-      const height = Math.max(360, Math.round(width * 0.65));
+      const height = Math.max(300, Math.round(width * 0.55));
 
       svg.attr('width', width).attr('height', height);
       plot.attr('transform', `translate(${margin.left},${margin.top})`);

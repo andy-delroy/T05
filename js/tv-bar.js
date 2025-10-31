@@ -8,38 +8,14 @@
   const plot = svg.append('g').attr('class', 'plot');
   const tooltip = container.append('div').attr('class', 'chart-tooltip');
 
-  // Load and coerce the data necessary to compute technology averages.
-  d3.csv('data/Ex5_TV_energy.csv', d => {
-    const size = d.screensize ? +d.screensize : null;
-    const energy = d.energy_consumpt ? +d.energy_consumpt : null;
-    const stars = d.star2 ? +d.star2 : null;
-    const count = d.count ? +d.count : 0;
-    return {
-      tech: d.screen_tech,
-      diagonal_inch: Number.isFinite(size) ? size : null,
-      annual_kwh: Number.isFinite(energy) ? energy : null,
-      star_rating: Number.isFinite(stars) ? stars : null,
-      count: Number.isFinite(count) && count > 0 ? count : 0
-    };
+  // Load the provided 55-inch technology averages.
+  d3.csv('data/Ex5_TV_energy_55inchtv_byScreenType.csv', d => {
+    const tech = d['Screen_Tech'] ? String(d['Screen_Tech']).trim() : '';
+    const value = d['Mean(Labelled energy consumption (kWh/year))'];
+    const meanKwh = value !== undefined && value !== null && value !== '' ? +value : null;
+    return tech && Number.isFinite(meanKwh) ? {tech, value: meanKwh} : null;
   }).then(rows => {
-    // We only need rows that represent 55-inch models with usable energy data.
-    const filtered = rows.filter(d => d.diagonal_inch != null && Math.abs(d.diagonal_inch - 55) < 0.5 && d.annual_kwh != null && d.count > 0);
-    if(!filtered.length) return;
-
-    // Weighted mean energy consumption for each technology bucket.
-    const summaries = d3.rollups(
-      filtered,
-      values => {
-        const totalEnergy = d3.sum(values, v => v.annual_kwh * v.count);
-        const totalModels = d3.sum(values, v => v.count);
-        return totalModels ? {average: totalEnergy / totalModels, models: totalModels} : null;
-      },
-      d => d.tech
-    )
-      .map(([tech, summary]) => summary ? {tech, value: summary.average, models: summary.models} : null)
-      .filter(Boolean)
-      .sort((a, b) => d3.ascending(a.value, b.value));
-
+    const summaries = rows.filter(Boolean).sort((a, b) => d3.ascending(a.value, b.value));
     if(!summaries.length) return;
 
     const color = d3.scaleOrdinal(summaries.map(d => d.tech), d3.schemeTableau10);
@@ -54,14 +30,14 @@
       .data(summaries)
       .join('span')
       .style('--swatch-color', d => color(d.tech))
-      .text(d => `${d.tech} (${d.models} models)`);
+      .text(d => `${d.tech} - ${formatKwh(d.value)} kWh`);
 
     const margin = {top: 24, right: 20, bottom: 64, left: 80};
 
     function render(){
       // Resize the SVG based on the card width for responsiveness.
       const width = container.node().clientWidth || 320;
-      const height = Math.max(320, Math.round(width * 0.65));
+      const height = Math.max(280, Math.round(width * 0.55));
 
       svg.attr('width', width).attr('height', height);
       plot.attr('transform', `translate(${margin.left},${margin.top})`);
@@ -122,9 +98,9 @@
           .attr('height', 0)
           .attr('fill', d => color(d.tech))
           .on('mouseenter', (event, d) => {
-            // Tooltip combines the weighted average with the sample size.
+            // Tooltip surfaces the average annual energy use for this tech.
             tooltip.style('opacity', 1)
-              .html(`<strong>${d.tech}</strong><br>${formatKwh(d.value)} kWh per year on average<br>${d.models} models analysed`)
+              .html(`<strong>${d.tech}</strong><br>${formatKwh(d.value)} kWh per year on average`)
               .style('left', `${event.offsetX + 12}px`)
               .style('top', `${event.offsetY - 10}px`);
           })
